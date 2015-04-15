@@ -3,7 +3,7 @@ data1 segment
 Vb db 10101b
 String db 'Testing string'
 Vw dw 7
-go_addr dd go2
+goaddr dd go2
 data1 ends
 
 data2 segment
@@ -35,7 +35,7 @@ code2 segment
 assume CS:code2, Ds:Data
 go1:
 test Vd[esi+edi*2],eax
-jmp go_addr
+jmp goaddr
 code2 ends
 
-end start
+end
