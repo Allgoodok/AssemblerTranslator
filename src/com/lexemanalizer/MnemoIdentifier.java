@@ -1,16 +1,16 @@
 package com.lexemanalizer;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 /**
  * Created by Vlad on 29.03.2015.
  */
 public class MnemoIdentifier extends Lexem {
 
-    public MnemoIdentifier(){
+    public MnemoIdentifier(int ID, String NAME, int LEXEMLENGTH, String TYPE){
 
-        setTYPE("Mnemonic identifier of machine instruction");
+        setLEXEMLENGTH(LEXEMLENGTH);
+        setNAME(NAME);
+        setID(ID);
+        setTYPE(TYPE);
 
     }
 

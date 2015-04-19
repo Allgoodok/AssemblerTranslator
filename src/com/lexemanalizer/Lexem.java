@@ -5,17 +5,17 @@ package com.lexemanalizer;
  */
 public class Lexem {
 
-        public String NUMBER;
+        public int ID;
         public String NAME;
-        public String LEXEMLENGTH;
+        public int LEXEMLENGTH;
         public String TYPE;
 
-    public String getNUMBER() {
-        return NUMBER;
+    public int getID() {
+        return ID;
     }
 
-    public void setNUMBER(String NUMBER) {
-        this.NUMBER = NUMBER;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public String getNAME() {
@@ -26,11 +26,11 @@ public class Lexem {
         this.NAME = NAME;
     }
 
-    public String getLEXEMLENGTH() {
+    public int getLEXEMLENGTH() {
         return LEXEMLENGTH;
     }
 
-    public void setLEXEMLENGTH(String LEXEMLENGTH) {
+    public void setLEXEMLENGTH(int LEXEMLENGTH) {
         this.LEXEMLENGTH = LEXEMLENGTH;
     }
 

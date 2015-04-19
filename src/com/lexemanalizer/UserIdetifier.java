@@ -5,7 +5,14 @@ package com.lexemanalizer;
  */
 public class UserIdetifier extends Lexem {
 
-    public UserIdetifier(){ setTYPE("User's identifier or not qualified"); }
+    public UserIdetifier(int ID, String NAME, int LEXEMLENGTH, String TYPE){
+
+        setLEXEMLENGTH(LEXEMLENGTH);
+        setNAME(NAME);
+        setID(ID);
+        setTYPE(TYPE);
+
+    }
 
 
 }

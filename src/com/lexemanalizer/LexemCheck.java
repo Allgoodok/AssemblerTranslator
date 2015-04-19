@@ -1,5 +1,6 @@
 package com.lexemanalizer;
 
+import javax.xml.crypto.Data;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,10 +11,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class LexemCheck {
 
-    public DataRegister dataRegister = new DataRegister();
-    public MnemoIdentifier mnemoIdentifier = new MnemoIdentifier();
-    public UserIdetifier userIdetifier = new UserIdetifier();
-    public KeyWord keyWord = new KeyWord();
     public String stringCash;
     public Boolean flagTextConstantStart;
     public Boolean flagTextConstantEnd;
@@ -21,6 +18,7 @@ public class LexemCheck {
     private List<String> mnemoCommands = new CopyOnWriteArrayList<>();
     private List<String> data32Register = new CopyOnWriteArrayList<>();
     private List<String> data8Register = new CopyOnWriteArrayList<>();
+    private List<String> segmentRegister = new CopyOnWriteArrayList<>();
     private List<String> keyWordList  = new CopyOnWriteArrayList<>();
 
     public void setMnemoCommands(){
@@ -56,6 +54,7 @@ public class LexemCheck {
     public void setData32Register(){
 
         data32Register.add("EAX");
+        data32Register.add("EBX");
         data32Register.add("ECX");
         data32Register.add("EDX");
         data32Register.add("EBS");
@@ -63,8 +62,11 @@ public class LexemCheck {
         data32Register.add("ESP");
         data32Register.add("ESI");
         data32Register.add("EDI");
+        data32Register.add("EDI");
     }
 
+
+    //сегментные регистры, 8ричные, 32ричные сегменты, ключевые слова, машинные команды, делиметры
     public void  setKeyWordList() {
 
         keyWordList.add("END");
@@ -76,6 +78,17 @@ public class LexemCheck {
         keyWordList.add("DB");
         keyWordList.add("PTR");
         keyWordList.add("FAR");
+        keyWordList.add("CS");
+        keyWordList.add("SS");
+
+    }
+
+
+    public void setSegmentRegister() {
+
+        segmentRegister.add("CS");
+        segmentRegister.add("SS");
+        segmentRegister.add("DS");
 
     }
 
@@ -84,6 +97,7 @@ public class LexemCheck {
         setData8Register();
         setData32Register();
         setKeyWordList();
+        setSegmentRegister();
 
     }
 
@@ -101,39 +115,62 @@ public class LexemCheck {
         return false;
     }
 
-    public boolean isDataRegister(String toCheck){
+    public boolean isDataRegister8(String toCheck) {
+
+        Iterator iterator = data8Register.iterator();
 
 
-        Iterator iterator32 = data32Register.iterator();
-        Iterator iterator8 = data8Register.iterator();
 
-
-        while(iterator32.hasNext() && iterator8.hasNext()) {
-
-            if (toCheck.equals(iterator32.next())) {
-
+        while(iterator.hasNext()){
+            if(toCheck.equals(iterator.next())) {
                 return true;
-            }else if(toCheck.equals(iterator8.next())){
-
-                return true;
-
             }
-
         }
-
         return false;
-
     }
+
+    public boolean isDataRegister32(String toCheck) {
+
+        Iterator iterator = data32Register.iterator();
+
+
+
+        while(iterator.hasNext()){
+            if(toCheck.equals(iterator.next())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isSegmentRegister(String toCheck) {
+
+        Iterator iterator = segmentRegister.iterator();
+
+
+
+        while(iterator.hasNext()){
+            if(toCheck.equals(iterator.next())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
     public boolean isUserIdentifier(String toCheck) {
 
         if(isTextConstant(toCheck)){
             return false;
         }
-        else if(isDataRegister(toCheck)) {
+        else if(isDataRegister8(toCheck)) {
             return false;
-        }
-        else if(isKeyWord(toCheck)) {
+        }else if(isDataRegister32(toCheck)){
+            return false;
+        } else if(isKeyWord(toCheck)) {
+            return false;
+        }else if(isSegmentRegister(toCheck)){
             return false;
         }
 
