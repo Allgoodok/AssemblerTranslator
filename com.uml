@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com</OriginalElement>
+  <nodes>
+    <node x="0.0" y="1558.0">com.AsmConstantsDefiner</node>
+    <node x="2134.0" y="1558.0">com.oracle</node>
+    <node x="2292.0" y="1558.0">com.sun</node>
+    <node x="344.25" y="1461.0">com.LauncherClass</node>
+    <node x="583.0" y="0.0">com.AsmLineFormat</node>
+    <node x="0.0" y="176.0">com.AsmLexemTokenizer</node>
+    <node x="53.25" y="720.0">com.AsmFirstSecondPassage</node>
+    <node x="1373.0" y="1558.0">com.AsmAtomicMethods</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.AsmFirstSecondPassage" target="com.AsmLexemTokenizer">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+    <edge source="com.AsmFirstSecondPassage" target="com.AsmLineFormat">
+      <point x="246.0" y="-345.5" />
+      <point x="668.25" y="695.0" />
+      <point x="968.0" y="695.0" />
+      <point x="0.0" y="335.0" />
+    </edge>
+    <edge source="com.LauncherClass" target="com.AsmFirstSecondPassage">
+      <point x="0.0" y="0.0" />
+      <point x="0.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.3000000000000001" x="672.9999999999995" y="1562.333333333333" />
+  <SelectedNodes>
+    <node>com.AsmLineFormat</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
